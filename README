@@ -1,0 +1,11 @@
+Pull image docker
+docker pull google/cloud-sdk:emulators
+
+Run PubSub image
+docker run -d --name pub-sub-local --rm -p 8085:8085 google/cloud-sdk:emulators /bin/bash -c "gcloud beta emulators pubsub start --project=some-project-id --host-port='0.0.0.0:8085'"
+
+Run Consumer
+node consumer.js
+
+Run Sender
+node sender.js
